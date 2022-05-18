@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="https://omrelli.ug/smoke.js/smoke.js"></script>
+
+  <style>
+ *{margin:0; padding:0;}
+html,body{width:100%; height:100%; overflow:hidden;}
+.wrap { width:100%; height:100%; position:relative; background-color:#000; background-size:100% 100%;}
+.bg{width:100%; height:100%; background:url('bg8.png');    background-size: inherit; background-repeat: no-repeat; position:absolute; top:0; left:0; z-index:0; opacity:0.5;}
+
+
+
+#repro { background-size: cover; width: 100vw; height: 100vh; overflow: hidden; position: relative; } #repro::after { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle, rgba(64, 140, 235, 0.2) 20%, rgba(255, 255, 255, 0) 120%); }
+
+#canvasMiddle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+#canvasLeft,
+#canvasRight {
+  position: absolute;
+  bottom: 50vh;
+  width: 100vh;
+  height: 100vw;
+  transform-origin: bottom center;
+}
+
+#canvasLeft {
+  left: -50vh;
+  transform: rotate(90deg);
+}
+
+#canvasRight {
+  right: -50vh;
+  transform: rotate(-90deg);
+}
+
+
+.polygonWrap{display:none; position:absolute; top:0; left:0; width:100%; height:100%; perspective: 3.125vmin;}
+.polygonWrap.active{display:block;}
+.polygon {
+  -webkit-animation: 4s linear infinite polygon;
+          animation: 4s linear infinite polygon;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform-style: preserve-3d;
+  transform: rotatex(90deg) rotatey(0) translatey(-25vmin);
+}
+
+@-webkit-keyframes polygon {
+  100% {
+    transform: rotatex(90deg) rotatey(360deg) translatey(0);
+  }
+}
+
+@keyframes polygon {
+  100% {
+    transform: rotatex(90deg) rotatey(360deg) translatey(0);
+  }
+}
+.side {
+  background-image: url('bg7.png');
+  background-size: 159.12989vmin 25%;
+  filter: hue-rotate(-10deg);
+  height: 100vmin;
+  position: absolute;
+  transform-origin: 0;
+  width: calc(9.94562vmin + 1px);
+}
+.side:nth-child(1) {
+  background-position: -9.94562vmin 0;
+  transform: rotatey(22.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(2) {
+  background-position: -19.89124vmin 0;
+  transform: rotatey(45deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(3) {
+  background-position: -29.83686vmin 0;
+  transform: rotatey(67.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(4) {
+  background-position: -39.78247vmin 0;
+  transform: rotatey(90deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(5) {
+  background-position: -49.72809vmin 0;
+  transform: rotatey(112.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(6) {
+  background-position: -59.67371vmin 0;
+  transform: rotatey(135deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(7) {
+  background-position: -69.61933vmin 0;
+  transform: rotatey(157.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(8) {
+  background-position: -79.56495vmin 0;
+  transform: rotatey(180deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(9) {
+  background-position: -89.51057vmin 0;
+  transform: rotatey(202.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(10) {
+  background-position: -99.45618vmin 0;
+  transform: rotatey(225deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(11) {
+  background-position: -109.4018vmin 0;
+  transform: rotatey(247.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(12) {
+  background-position: -119.34742vmin 0;
+  transform: rotatey(270deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(13) {
+  background-position: -129.29304vmin 0;
+  transform: rotatey(292.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(14) {
+  background-position: -139.23866vmin 0;
+  transform: rotatey(315deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(15) {
+  background-position: -149.18428vmin 0;
+  transform: rotatey(337.5deg) translate3d(-50%, -50%, 25vmin);
+}
+.side:nth-child(16) {
+  background-position: -159.12989vmin 0;
+  transform: rotatey(360deg) translate3d(-50%, -50%, 25vmin);
+}
+
+
+.cardWrap{width:100%; height:400px; position: absolute; top:0; left:0; right:0; bottom:0; margin:auto;
+z-index:9;}
+#card{position:absolute; bottom:30px; width:290px; height:50px; left:0; right:0; margin:0 auto; font-size:26px; z-index:9;}
+.coin { background-image: url("none.png");
+  background-size: 100% 100%;
+  height: 400px;
+  margin: 0px auto;
+  display: block;
+ width: 290px;
+ max-width:70%;  -webkit-transition: 2s linear;  -webkit-transform-style: preserve-3d;
+background-color:#C4AC66; border:2px solid #C4AC66;
+}
+
+.coin.effect{background-image:none;}
+.effect{ /*border:3px solid rgba(255,255,255,0.3);*/ cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+  animation: blur 2s ease-out infinite;
+  box-shadow: 0px 0px 50px #fff, 
+  0px 0px 70px #fff;
+  transition:0 !important;
+  background-color: #C4AC66;
+}
+.effect .result{ width:100%; height:100%; background-image: url("https://ext.fmkorea.com/files/attach/new/20180930/61440947/17924078/1296378633/99b983892094b5c6d2fc3736e15da7d1.png"); background-size:100% 100%;}
+@keyframes blur {
+  from {
+    box-shadow:
+      0px 0px 50px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #7B96B8,
+      0px 10px 70px #7B96B8,
+      0px 10px 70px #7B96B8,
+      0px 10px 70px #7B96B8,
+      0px 10px 70px #7B96B8,
+      0px -10px 70px #7B96B8,
+      0px -10px 70px #7B96B8;
+	  0px -20px 100px #7B96B8;
+	  0px -20px 100px #7B96B8;
+	  0px -20px 100px #7B96B8;
+	  0px -20px 100px #7B96B8;
+	  0px -20px 100px #7B96B8;
+	  0px -20px 100px #7B96B8;
+  }
+}
+.effect .result-effect3{overflow: hidden;display: block;position: relative;width: 100%;height: 100%;}
+.effect .result-effect3:before{position: absolute;top: 0;left: -100%;z-index: 2;display: block;content: '';width: 50%;height: 100%;background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);-webkit-transform: skewX(-25deg);transform: skewX(-45deg); 
+-webkit-animation: shine 1s 5s 1s infinite; animation: shine 1s 5s 1s infinite;}
+@-webkit-keyframes shine{
+	100% {left: 125%;}
+}
+@keyframes shine{
+	100% {left: 125%;}
+}
+
+
+.circle {
+    position: absolute;
+    width: 377px;
+    height: 487px;
+    filter: url(#wavy) blur(1px);
+	padding:70px;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+	display:none;
+	z-index:1;
+}
+.circle.active{display:block;}
+.circle:before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 90px;
+    right: 100px;
+    bottom: 100px;
+    border: 20px solid #fff;
+    
+    box-shadow: 0 0 50px #0f0,
+        inset 0 0 50px #0f0;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0002);
+    animation: animate 5s linear infinite;
+}
+.circle:after {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    right: 100px;
+    bottom: 100px;
+    border: 30px solid #fff;
+    
+    box-shadow: 0 0 10px #fff,
+        inset 0 0 20px #fff;
+}
+@keyframes animate {
+    0% {
+        box-shadow: 0 0 50px #0f0, inset 0 0 50px #0f0;
+        filter: hue-rotate(0deg);
+    }
+
+    20% {
+        box-shadow: 0 0 60px #0f0, inset 0 0 60px #0f0;
+    }
+
+    40% {
+        box-shadow: 0 0 40px #0f0, inset 0 0 40px #0f0;
+    }
+
+    60% {
+        box-shadow: 0 0 80px #0f0, inset 0 0 80px #0f0;
+    }
+
+    80% {
+        box-shadow: 0 0 100px #0f0, inset 0 0 100px #0f0;
+    }
+
+    100% {
+        box-shadow: 0 0 50px #0f0, inset 0 0 50px #0f0;
+        filter: hue-rotate(360deg)
+    }
+}
+svg {
+    width: 0;
+    height: 0;
+}
+
+  </style>
+ </head>
+
+ <body>
+ <div class="wrap">
+	<div id="polygon" class="polygonWrap">
+		<div class="polygon">
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		  <div class="side"></div>
+		</div>
+	</div>
+	<!-- 원 불꽃 -->
+	<div id="circle" class="circle"></div>
+    <svg>
+        <filter id="wavy">
+            <feTurbulence x="0" y="0" baseFrequency="0.009" numOctaves="5" seed="2">
+                <animate attributeName="baseFrequency" dur="60s" values="0.02;0.005;0.02" repeatCount="indefinite">
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="30">
+        </filter>
+    </svg>
+	<!-- /원 불꽃 -->
+
+	<div class="bg"></div>
+	<div id="repro">
+	  <canvas id="canvasMiddle"></canvas>
+	  <canvas id="canvasLeft"></canvas>
+	  <canvas id="canvasRight"></canvas>
+	</div>
+	<div class="cardWrap">
+		<div class="coin" id="coin"><div class="result result-effect3"></div></div>
+	</div>
+	<button type="button" id="card">뽑기</button>
+ </div>
+
+<script>
+var Coin = document.getElementById("coin");
+var Card = document.getElementById("card");
+var Circle = document.getElementById("circle");
+var Polygon = document.getElementById("polygon");
+var degrees = 0;
+Card.onclick = function() {
+  degrees += 18000;
+  Coin.style.webkitTransform = "rotateY(" + degrees + "deg)";
+  Coin.style.MozTransform = "rotateY(" + degrees + "deg)";
+  Coin.style.msTransform = "rotateY(" + degrees + "deg)";
+  Coin.style.OTransform = "rotateY(" + degrees + "deg)";
+  Coin.style.transform = "rotateY(" + degrees + "deg)";
+  Coin.style.transform = "rotateY(" + degrees + "deg)";
+  setTimeout(function() {  Coin.classList.add('effect'); }, 2000);
+  setTimeout(function() {  Circle.classList.add('active'); }, 2000);
+  Polygon.classList.add('active');
+  setTimeout(function() {  Polygon.classList.remove('active'); }, 2000);
+}
+
+</script>
+
+<!-- 배경 -->
+<script>
+const color = [255,255,255];;
+const particles = {
+	left: 0.05,
+	right: 0.05
+};
+
+const sideSmoke = (canvas, side) => {
+  const ctx = canvas.getContext('2d');
+  const machine = SmokeMachine(ctx, color);
+  machine.start();
+  machine.setPreDrawCallback(() => {
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    const posY = (innerWidth < 992) ? h : h - h*0.14;
+    machine.addSmoke(w/2, posY, particles[side])
+    canvas.width = w;
+    canvas.height = h;
+  });
+	return machine;
+}
+
+const middleSmoke = (canvas) => {
+  const ctx = canvas.getContext('2d');
+  const machine = SmokeMachine(ctx, color);
+  machine.start();
+	setTimeout(() => {
+		machine.setPreDrawCallback(() => {
+			const w = canvas.clientWidth;
+			const h = canvas.clientHeight;
+			machine.addSmoke(w/2, h*2/3, 0.05)
+			canvas.width = w;
+			canvas.height = h;
+		});
+	}, 2500);
+	return machine;
+}
+
+const repro = document.getElementById('repro');
+const canvasMiddle = document.getElementById('canvasMiddle');
+const canvasLeft = document.getElementById('canvasLeft');
+const canvasRight = document.getElementById('canvasRight');
+sideSmoke(canvasLeft, 'left');
+sideSmoke(canvasRight, 'right');
+const middleSmokeMachine = middleSmoke(canvasMiddle);
+
+
+repro.addEventListener('mousemove', e => {
+	requestAnimationFrame(() => {
+		// if (e.pageY > window.innerHeight) return;
+		// const t = Math.floor(Math.random() * 200) + 3800
+		// middleSmokeMachine.addSmoke(e.pageX, e.pageY, 0.1, t);
+		// if (e.pageX > window.innerWidth / 2)
+		const min = 0.015;
+		const max = 0.15;
+		const x = Math.round(e.pageX / innerWidth * 100) / 100;
+		particles.left = min + Math.round((max - min) * (1 - x) * 100) / 100;
+		particles.right = min + Math.round((max - min) * x * 100) / 100;
+	});
+});
+</script>
+ </body>
+</html>

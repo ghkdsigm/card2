@@ -1,0 +1,754 @@
+@charset "UTF-8";
+
+*{box-sizing:border-box;}
+input::placeholder{font-size:13px;}
+select{font-size:13px!important;}
+.clearfix:after{display:block;content:'';clear:both;}
+
+@font-face {
+  font-family:"NanumSquare";
+  src: url('../fonts/NanumSquareR.eot');
+  src: url(../fonts/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+       url(../fonts/NanumSquareR.woff) format('woff'),
+       url(../fonts/NanumSquareR.ttf) format('truetype');
+}
+
+body {
+  line-height: 1.4;
+  font-family:"NanumSquare","san-serif";
+  overflow-x: hidden;
+  width:100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input, button, textarea {
+  outline:0;
+}
+
+.section-padding {
+  padding:60px 0px 130px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin:0;
+  padding:0;
+}
+a:hover{text-decoration:none;}
+
+
+
+
+
+
+.navTitle {height: 37px;line-height: 37px;padding: 0 15px;background: #d5d5d5;text-align: center;}
+
+
+
+
+
+
+/*body*/
+.var_header {/* height:75px; */width: 100%;    overflow: hidden;}
+.var_header .headerWrap {/* height:75px; */width: 100%;}
+.var_body {/* margin-top: 72px; */height: calc(100vh - 0px);overflow: hidden;}
+.var_body .bodyWrap .v01 {height:100%;}
+.var_body .bodyWrap .v01 ul {height:100%;padding:0;margin:0;}
+.var_body .bodyWrap .v01 ul li {text-align:center;height: 10%;/* background: red; */margin: 10px;border: 1px solid #69b0bb;background: #fff;border-radius: 5px;position: relative;}
+.var_body .bodyWrap .v01 ul li.on {
+    background: #69b0bb;
+    color: #fff;
+    border-color: #fff;
+}
+.var_body .bodyWrap .v01 ul li.on a {color:#fff;}
+.var_body .bodyWrap .v01 ul li.on b {font-weight:400;}
+.var_body .bodyWrap .v01 ul li > div {
+    height: 22px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.var_body .bodyWrap .v01 ul li span {
+    display: inline-block;
+    padding: 0 7px 0 0;
+    font-size: 18px;
+}
+.var_body .bodyWrap .v01 ul li span i {
+    font-size: 15px;
+}
+.var_body .bodyWrap .v01 ul li b {
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.var_body .bodyWrap {height:100%;}
+.var_body .v01 {}
+.var_body .v02 {height: 100%;}
+.var_body .bodyWrap .view_side {height:100%;background: #efefef;/* padding-top: 10px; *//* box-shadow: 5px 5px 5px 5px white; */}
+.var_body .bodyWrap .view_video {height:100%;background: #000;/* padding-top: 10px; */overflow: hidden;}
+.var_body .bodyWrap .view_video .vodstreaming {height: calc(100% - 80px);position: relative;top: 0;background: #efefef;}
+.var_body .bodyWrap .view_video .videoFooter {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #efefef;
+    }
+.var_body .bodyWrap .view_video .vodstreaming video {
+    height: 100%;
+    /* margin: 0 15px; */
+    /* width: calc(100% - 30px); */
+    background: black;
+}
+
+
+.controlBar {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.speedBT {
+    z-index: 999;
+    bottom: 20%;
+    text-align: center;
+    width: 100%;
+    /* height: 50px; */
+    padding: 10px 0;
+    background: #4c4c4c4c;
+    bottom: 0;
+    position: relative;
+    }
+
+	.speedBT button{
+    padding: 17px 15px;
+    border: 0;
+    margin: 0 1%;
+    background: transparent;
+    min-width: 72px;
+    font-weight: bold;
+    /* border: 1px solid #ffffff6b; */
+    /* border-radius: 15px; */
+    box-shadow: 0px 2px 2px #00000021;
+}
+
+
+/**�޴���ġ��**/
+.more {
+  display:block;
+  width: 55px;
+  height: 37px;
+  background-image: url('../img/down_arrow.png');
+  z-index: 1111;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+.more:hover, .close:hover {
+  cursor:pointer;
+}
+
+.close {
+  display:block;
+  background-image: url('../img/up_arrow.png');
+  width: 55px;
+  height: 37px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.board {
+  font-family:'����';
+  font-size:13px;
+  position:absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  visibility:hidden;
+  z-index: 5;
+}
+
+.board .blackBG {
+    position: absolute;
+    /* background: rgba(0,0,0,.5); */
+    /* background-image: -webkit-gradient(linear,left bottom,left top,color-stop(50%,rgba(0,0,0,0)),to(rgba(0,0,0,.7))),radial-gradient(50% 100%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%); */
+    /* background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%),-webkit-radial-gradient(50% 100%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%); */
+    background-image: -moz- oldlinear-gradient(bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%),-moz- oldradial-gradient(50% 100%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%);
+    background-image: -o-linear-gradient(bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%),-o-radial-gradient(50% 100%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%);
+    /* background-image: linear-gradient(to top,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%),radial-gradient(50% 100%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%); */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.board .blackBG {
+    background: rgb(0 0 0 / 0%);
+    background-image: -webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,.8)),color-stop(60%,rgba(0,0,0,0)),to(rgba(0,0,0,.3)));
+    background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
+    background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
+    background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
+    background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
+}
+
+
+.list {
+  float:left;
+}
+
+.list li {
+  list-style:none;
+  margin-top:5px;
+}
+
+.list li:hover {
+  text-decoration:underline;
+  cursor:pointer;
+}
+.caseWrap {
+    /* background: red; */
+    z-index: 9999;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: calc(100% - 50px);
+}
+
+.caseWrap > ul {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 0;
+}
+
+.caseWrap > ul > li {
+    display: inline-block;
+    padding: 5px;
+    margin-right: 15px;
+    background-size: contain;
+    vertical-align: top;
+}
+
+.caseWrap ul li a {width:35px;height:35px;display:inline-block;font-size: 0;background-size: 100% 100%;background-repeat:no-repeat;}
+
+.caseWrap ul li:nth-of-type(1) a {background-image: url(../img/icon_single_white.png);}
+.caseWrap ul li:nth-of-type(1):hover a {background-image: url(../img/icon_single_color.png);}
+.caseWrap ul li.on:nth-of-type(1) a {background-image: url(../img/icon_single_color.png);}
+
+.caseWrap ul li:nth-of-type(2) a {background-image: url(../img/icon_multi_white.png);}
+.caseWrap ul li:nth-of-type(2):hover a {background-image: url(../img/icon_multi_color.png);}
+.caseWrap ul li.on:nth-of-type(2) a {background-image: url(../img/icon_multi_color.png);}
+
+.multiview_01 {}
+
+li.multiview_01 {}
+.multiview_02 {/* background-image:url(../img/icon_multi_white.png) */}
+.multiview_01 .on {background-image:url(../img/icon_single_color.png);/* width: 30px; *//* height: 30px; *//* display: inline-block; */}
+.multiview_02 .on {background-image:url(../img/icon_multi_color.png)}
+
+.caseWrap > ul.multiView {/* display:none; */opacity: 0.3;pointer-events: none;cursor: default;}
+.caseWrap > ul.multiOpen {display: inline-block;}
+
+.openCase {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    }
+
+.openCase .camMenu {
+    display: inline-block;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.speedBT > button {
+  border-radius: 25px;
+  /* width: 104px; */
+  /* height: 40px; */
+  /* background-color: #eee; */
+  cursor: pointer;
+  outline: none;
+  box-shadow: 1px 4px 0 rgb(0,0,0,0.5);
+}
+
+.speedBT > button:active {
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+.speedBT > button:hover {
+  background-color: #ffa9a9;
+}
+
+
+.speedBT > button {
+  /* width: 50px; */
+  /* height: 40px; */
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  background-color: #eee;
+  box-shadow: 1px 1px 0 rgb(0 0 0 / 50%);
+  vertical-align: top;
+}
+
+.speedBT > button:active {
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+.speedBT > button:hover {
+  background-color: #d09c0f;
+}
+
+.speedBT > .operator {
+  color: #fff;
+  background-color: #313132;
+}
+.speedBT > .double {
+  width: 104px;
+}
+
+.speedBT > .isPressed {
+  color:#FC7174;
+}
+
+
+.speedBT > button.liveBT:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
+.speedBT > button.liveBT:active {
+    box-shadow: 1px 1px 0 rgb(0 0 0 / 50%);
+    position: relative;
+    top: 2px;
+}
+.video-js {width:100% !important; height:100% !important;}
+
+/**/
+.camList{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: calc(30% - 25px);
+}
+
+.camcontainer > .btn {
+  margin: 60px;
+  padding: 20px 40px;
+  font-size: 30px;
+  border-radius: 40px;
+}
+.modal {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+  top: 100%;
+  position: fixed;
+  left: 0;
+  text-align: left;
+}
+
+
+
+.camcontainer.modal-open .modal {
+  top: 0;
+}
+
+
+.camcontainer .modal ul {
+    margin: 0;
+    padding: 0;
+}
+.camcontainer .modal ul li {
+    display: inline-block;
+    /* min-width: 15%; */
+    max-width: 18%;
+    margin: 0 5px;
+    background: red;
+}
+.camcontainer .modal ul li a {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    border: 3px solid #fff;
+}
+.camcontainer .modal ul li a .camTit {
+    display: block;
+    position: absolute;
+    background: #888888;
+    color: #fff;
+    padding: 2px 5px;
+    font-size: 10px;
+}
+.camcontainer .modal ul li.on a { border: 3px solid #FFC528;}
+.camcontainer .modal ul li.on a .camTit {background:#000;}
+
+.camcontainer .modal ul li a .camImg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.camcontainer .modal ul li a .camImg img {width:100%;height:100%;}
+
+
+/*******************/
+
+
+.fullScreen {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+
+ .overlay {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(77, 191, 140, 0.9), rgba(41, 115, 82, 0.9));
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  border-radius: 5px;
+}
+
+ .overlay .button {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: url(play-button.svg);
+  background-size: 100% 100%;
+  transform: translate(-50%, calc(-50% - 30px));
+  cursor: pointer;
+  transition: width 0.2s, height 0.2s;
+}
+
+ .overlay .button:hover {
+  width: 90px;
+  height: 90px;
+}
+
+ #controls {
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  z-index: 9999;
+}
+
+ #controls .playButton {
+  width: 70px;
+  height: 100%;
+  background: transparent;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 5px; */
+  cursor: pointer;
+  transition: all 0.4s;
+  border-bottom-left-radius: 5px;
+}
+
+ #controls .playButton:hover {background: transparent;}
+
+ #controls .playButton .playPause {
+  width: 25px;
+  height: 25px;
+  background: url(../img/play.png);
+  background-size: 100% 100%;
+  background-position: bottom;
+}
+
+ #controls .ProgressContainer {
+  color: #fff;
+  width: calc(100% - 80px);
+  height: 100%;
+  display: inline-block;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  vertical-align: top;
+}
+
+ #controls .ProgressContainer .progressBar {
+  width: 90%;
+  height: 58px;
+  background: #e6e6e6;
+  border-radius: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  display: inline-block;
+}
+
+ #controls .ProgressContainer .progressBar:hover + .time {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+ #controls .ProgressContainer .progressBar .progress {
+  width: 0%;
+  height: 100%;
+  background: #ffc528;
+  border-radius: 0;
+  position: relative;
+}
+#controls .ProgressContainer .progressBar .progress::after {
+  content: "";
+  background-color: #171717;
+  font-weight: bold;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+ #controls .ProgressContainer .timer {
+  margin: 0 10px 0 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  display: inline-block;
+  letter-spacing: 1px;
+  /* position: absolute; */
+  color: #ffc528;
+  height: 100%;
+  line-height: 55px;
+  vertical-align: top;
+}
+
+ #controls .ProgressContainer .time {
+  width: 80px;
+  height: 25px;
+  background: #2c7a57;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  line-height: 25px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 0.3s, opacity 0.3s;
+  /* display: none; */
+}
+
+ #controls .ProgressContainer .time::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #2c7a57;
+}
+
+
+#controls {width: 65%;display:inline-block;}
+#controls .playButton {}
+#controls .playButton .playPause {height: 100%;color:#fff;width: 100%;}
+#controls .playButton .ProgressContainer {}
+#controls .playButton .ProgressContainer > div {display:inline-block;}
+#controls .playButton .ProgressContainer .progressBar {background: #c1c1c1;  border-radius: 5px;}
+#controls .playButton .ProgressContainer .progressBar .progress {}
+
+
+#controls .ProgressContainer .timer.fullTime {display:none;}
+
+
+.speedBT > button.backBT {
+    background: url(../img/backIcon.png);
+    color: #FFC528;
+    background-position: 5px 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.speedBT > button.speedMenu {
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    padding: 16px 15px;
+} 
+
+
+
+
+
+/*배속*/
+#selectWrap {display:inline-block;vertical-align: top;}
+.text_ul_wrap{margin:0 auto;width: 82px;/* margin-top: 30px; */position: relative;/* border: 1px solid #fff; */text-align: left;display: inline-block;}
+.text_ul_wrap a{color: #fff;line-height: 34px;display: block;padding: 0 10px 0 10px;text-decoration:none;text-align: center;color: #ffc528;font-size: 20px;line-height: 55px;font-weight: bold;}
+.text_ul_wrap a:focus, .text_ul_wrap a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.select_icon{display: block;content: '';clear: both;position:absolute;right:10px;top:12px;width: 0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:12px solid #000;border-bottom:none;display: none;}
+.select_icon.active{border-bottom:12px solid #000; border-top:none;}
+.ul_select_style{position: absolute;width: 100%;left: -1px;display: none;bottom: 100%;margin: 0;padding: 0;background: #171717;}
+.ul_select_style.active{display: block}
+.ul_select_style li{line-height: 34px;text-align: left;cursor: pointer;color: #fff;}
+.ul_select_style li > button {
+    margin: 0;
+    padding: 10px 0;
+    font-weight: 100;
+    font-size: 16px;
+    min-width: 82px;
+}
+.ul_select_style li + li{border-top:none;}
+.ul_select_style li:hover{background: rgba(0,0,0,0.2)}
+
+
+/*인트로*/
+.introWrap {background:url(../img/introBG.png);width: 100%;height: 100%;background-size: cover;background-repeat: no-repeat;position: absolute;top: 0;}
+.introWrap .logo {
+    width: 330px;
+    height: 80px;
+    background: url('../img/logo.png') no-repeat;
+    margin: 130px auto 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.introWrap .login-box {
+    width: 330px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #69a8e8;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    -webkit-box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.introWrap .login-box h1 {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.introWrap .login-box input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+}
+
+.introWrap .login-box input#username {
+    background: #fff url('../img/login1.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+.introWrap .login-box input#username:focus {
+    background: #fff url('../img/login1.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+.introWrap .login-box input#password {
+    background: #fff url('../img/login2.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+.introWrap .login-box input#password:focus {
+    background: #fff url('../img/login2.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+.introWrap .login-box input:active, .login-box input:focus {
+    border: 1px solid #69a8e8;
+}
+
+.introWrap .login-box button {
+    width: 100%;
+    height: 40px;
+    background: #69a8e8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #326fad;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+}
+
+.introWrap .login-box button:hover {
+    background: #326fad;
+}
+
+.login-help {
+    width: 330px;
+    margin: 10px auto 0;
+    color: #ccc;
+    font-size: 13px;
+    }
+.login-help > a {display:inline-block;margin-left:2px;color: #fff820;}

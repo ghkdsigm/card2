@@ -1,0 +1,59 @@
+@media (max-width: 1600px){
+
+}
+
+@media (max-width: 1540px) {
+   
+
+}
+@media (min-width: 1401px){
+	/* header 메뉴 리사이징 */
+
+}
+
+@media (max-width: 1400px){
+	/* header */
+
+}
+@media (max-width: 1280px){
+	/* 공통 */
+
+
+
+}
+
+@media (max-width: 1200px) {
+
+
+}
+@media (max-width: 1024px) {
+	/* 공통 */
+.col-md-2 {
+    width: 16.66666667%;
+}
+.col-md-10 {
+    width: 83.33333333%;
+}
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+    float: left;
+}
+
+}
+@media (max-width:860px){
+
+
+}
+@media (max-width: 768px){
+	/* 공통 */
+
+
+
+}
+@media (max-width: 640px){
+	
+}
+
+@media (min-width: 20px) and (max-width: 450px) {
+
+
+}

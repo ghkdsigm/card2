@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+*{box-sizing:border-box;}
+input::placeholder{font-size:13px;}
+select{font-size:13px!important;}
+.clearfix:after{display:block;content:'';clear:both;}
+
+@font-face {
+  font-family:"NanumSquare";
+  src: url('../fonts/NanumSquareR.eot');
+  src: url(../fonts/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+       url(../fonts/NanumSquareR.woff) format('woff'),
+       url(../fonts/NanumSquareR.ttf) format('truetype');
+}
+
+body {
+  line-height: 1.4;
+  font-family:"NanumSquare","san-serif";
+  overflow-x: hidden;
+  width:100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input, button, textarea {
+  outline:0;
+}
+
+.section-padding {
+  padding:60px 0px 130px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin:0;
+  padding:0;
+}
+a:hover{text-decoration:none;}
+
+
+
+
+
+
+.navTitle {height: 37px;line-height: 37px;padding: 0 15px;background: #d5d5d5;text-align: center;}
+
+
+
+
+
+
+/*body*/
+.var_header {/* height:75px; */width: 100%;    overflow: hidden;}
+.var_header .headerWrap {/* height:75px; */width: 100%;}
+.var_body {/* margin-top: 72px; */height: calc(100vh - 90px);overflow: hidden;}
+.var_body .bodyWrap .v01 {height:100%;}
+.var_body .bodyWrap .v01 ul {height:100%;padding:0;margin:0;}
+.var_body .bodyWrap .v01 ul li {text-align:center;height: 10%;/* background: red; */margin: 10px;border: 1px solid #69b0bb;background: #fff;border-radius: 5px;position: relative;}
+.var_body .bodyWrap .v01 ul li.on {
+    background: #69b0bb;
+    color: #fff;
+    border-color: #fff;
+}
+.var_body .bodyWrap .v01 ul li.on a {color:#fff;}
+.var_body .bodyWrap .v01 ul li.on b {font-weight:400;}
+.var_body .bodyWrap .v01 ul li > div {
+    height: 22px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.var_body .bodyWrap .v01 ul li span {
+    display: inline-block;
+    padding: 0 7px 0 0;
+    font-size: 18px;
+}
+.var_body .bodyWrap .v01 ul li span i {
+    font-size: 15px;
+}
+.var_body .bodyWrap .v01 ul li b {
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.var_body .bodyWrap {height:100%;}
+.var_body .v01 {}
+.var_body .v02 {height: 100%;}
+.var_body .bodyWrap .view_side {height:100%;background: #efefef;/* padding-top: 10px; *//* box-shadow: 5px 5px 5px 5px white; */}
+.var_body .bodyWrap .view_video {height:100%;background: #000;/* padding-top: 10px; */overflow: hidden;}
+.var_body .bodyWrap .view_video .vodstreaming {height: calc(100% - 43px);position: relative;top: 0;background: #efefef;}
+.var_body .bodyWrap .view_video .videoFooter {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #efefef;
+    }
+.var_body .bodyWrap .view_video .vodstreaming video {
+    height: 100%;
+    /* margin: 0 15px; */
+    /* width: calc(100% - 30px); */
+}
+
+.speedBT {
+    position: absolute;
+    z-index: 999;
+    bottom: 20%;
+    text-align: center;
+    width: 100%;
+    }
+
+	.speedBT button{
+    padding: 15px;
+    border: 0;
+    margin: 0 1%;
+    background: #ffffff40;
+    min-width: 72px;
+    /* border: 1px solid #ffffff6b; */
+    /* border-radius: 15px; */
+    box-shadow: 0px 2px 2px #00000021;
+}
+
+
+
+
+
+.speedBT > button {
+  border-radius: 25px;
+  /* width: 104px; */
+  /* height: 40px; */
+  /* background-color: #eee; */
+  cursor: pointer;
+  outline: none;
+  box-shadow: 1px 4px 0 rgb(0,0,0,0.5);
+}
+
+.speedBT > button:active {
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+.speedBT > button:hover {
+  background-color: #ffa9a9;
+}
+
+.speedBT {
+  height: 50px;
+  margin: 10px;
+}
+.speedBT > button {
+  /* width: 50px; */
+  /* height: 40px; */
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  /* background-color: #eee; */
+  box-shadow: 1px 1px 0 rgb(0 0 0 / 50%);
+}
+
+.speedBT > button:active {
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+.speedBT > button:hover {
+  background-color: #69b0bb38;
+}
+
+.speedBT > .operator {
+  color: #fff;
+  background-color: #313132;
+}
+.speedBT > .double {
+  width: 104px;
+}
+
+.speedBT > .isPressed {
+  color:#FC7174;
+}
+
+
+.speedBT > button.liveBT:hover {
+    background-color: #de5c5c70;
+    color: #fff;
+}
+.speedBT > button.liveBT:active {
+    box-shadow: 1px 1px 0 rgb(0 0 0 / 50%);
+    position: relative;
+    top: 2px;
+}
+.video-js {width:100% !important; height:100% !important;}
+
+
+
+
+
+

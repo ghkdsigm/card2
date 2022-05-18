@@ -1,0 +1,17 @@
+.doubleWrap {}
+.doubleWrap .pbWrapper {
+    width: 100%;
+    /* height: 100%; */
+    font-size: 0;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.doubleWrap .pbWrapper .playerBox {
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+}
+.doubleWrap .pbWrapper .playerBox video {}
+.doubleWrap .openCase {height: 74px;}
+.doubleWrap {}
+.var_body .doubleWrap .view_video .vodstreaming {background:#000;}
